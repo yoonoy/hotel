@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="440.0" prefWidth="452.0" spacing="20" style="-fx-background-color: linear-gradient(to bottom, #ff7f7f, #ffb3b3);" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo13.HelloController">
+<VBox alignment="CENTER" prefHeight="440.0" prefWidth="452.0" spacing="20" style="-fx-background-color: beige;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo13.HelloController">
     <Label alignment="CENTER" graphicTextGap="6.0" prefHeight="40.0" prefWidth="300.0" style="-fx-font-size: 24; -fx-font-weight: bold;" text="Hotel Reservation System" textFill="#1b1a1a" textOverrun="CENTER_ELLIPSIS">
         <font>
             <Font size="18.0" />
@@ -49,7 +49,7 @@
     <ListView fx:id="reservationListView" prefHeight="0.0" prefWidth="508.0" style="-fx-font-size: 14px; -fx-background-color: #f1f1f1; -fx-border-color: #4CAF50;" />
 
     <!-- Exit Button -->
-    <Button onAction="#handleExit" styleClass="button-exit" text="Exit" />
+    <Button onAction="#handleExit" text="Exit" style="-fx-background-color: brown; -fx-text-fill: white;" />
 
     <!-- Padding for the VBox -->
     <VBox.margin>
