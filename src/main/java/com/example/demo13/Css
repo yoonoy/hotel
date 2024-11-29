@@ -1,0 +1,25 @@
+/* Global Styling */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #ff7f7f, #ffb3b3);
+}
+
+.label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1b1a1a;
+}
+
+.button-view-rooms {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+}
+
+.button-view-rooms:hover {
+    -fx-background-color: #45a049;
+}
+
+.button-make-reservation {
+    -fx-background-color: #008CBA;
+    -fx-text-fill
