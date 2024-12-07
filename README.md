@@ -39,7 +39,7 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
 
 
 ### UML diagram
-
+![photo_2024-12-07 16 55 29](https://github.com/user-attachments/assets/29c15ef3-5efa-4660-a93d-d30714058e8c)
 
 
 ### Weekly Meeting Documentation
@@ -47,25 +47,5 @@ https://docs.google.com/document/d/11mxoQj7_o6EOdj6-RhD9X_zd2i2wZ--7CBbgX4DyAZA/
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Video in google drive
+### Video in google drive
 https://drive.google.com/drive/folders/1GXaqr3Hl_8OIIQd1DDyng93LAyfBO9RL?usp=sharing
