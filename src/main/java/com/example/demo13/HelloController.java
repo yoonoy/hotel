@@ -34,7 +34,7 @@ public class HelloController {
             showAlert("View Rooms", roomsInfo.toString());
 
         } catch (SQLException e) {
-            showAlert("Database Error", "Unable to fetch room data: " + e.getMessage());
+            showAlert("Database Error", "Unable to fetch room data: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -70,7 +70,7 @@ public class HelloController {
                     }
 
                 } catch (SQLException e) {
-                    showAlert("Database Error", "Unable to make reservation: " + e.getMessage());
+                    showAlert("Database Error", "Unable to make reservation: " + e.getMessage(), Alert.AlertType.ERROR);
                 }
             });
         });
@@ -95,7 +95,7 @@ public class HelloController {
             showAlert("View Reservations", "Reservations loaded successfully.");
 
         } catch (SQLException e) {
-            showAlert("Database Error", "Unable to fetch reservations: " + e.getMessage());
+            showAlert("Database Error", "Unable to fetch reservations: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -109,13 +109,13 @@ public class HelloController {
             if (resultSet.next()) {
                 String hotelInfo = "Hotel Name: " + resultSet.getString("hotel_name")
                         + ", Location: " + resultSet.getString("location");
-                showAlert("Hotel Information", hotelInfo);
+                showAlert("Hotel Information", hotelInfo, "Detailed Hotel Information");
             } else {
                 showAlert("No Hotel Found", "No hotel data available.");
             }
 
         } catch (SQLException e) {
-            showAlert("Database Error", "Unable to fetch hotel information: " + e.getMessage());
+            showAlert("Database Error", "Unable to fetch hotel information: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
@@ -125,11 +125,27 @@ public class HelloController {
         System.exit(0);
     }
 
-    // Show Alert Method
+    // Overloaded showAlert Method
     private void showAlert(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
     }
