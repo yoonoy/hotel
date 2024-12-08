@@ -1,23 +1,13 @@
 package com.example.demo13;
 
-public class Hotel {
-    private int id;
+public class Hotel extends Entity {
     private String name;
     private String location;
 
     public Hotel(int id, String name, String location) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.location = location;
-    }
-
-    // Getters and Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -37,7 +27,7 @@ public class Hotel {
     }
 
     @Override
-    public String toString() {
-        return "Hotel{id=" + id + ", name='" + name + '\'' + ", location='" + location + '\'' + '}';
+    public String getDetails() {
+        return "Hotel Name: " + name + ", Location: " + location;
     }
 }

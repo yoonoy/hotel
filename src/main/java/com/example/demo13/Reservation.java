@@ -2,27 +2,18 @@ package com.example.demo13;
 
 import java.util.Date;
 
-public class Reservation {
-    private int id;
+public class Reservation extends Entity {
     private int roomId;
     private String customerName;
     private Date checkIn;
     private Date checkOut;
 
     public Reservation(int id, int roomId, String customerName, Date checkIn, Date checkOut) {
-        this.id = id;
+        super(id);
         this.roomId = roomId;
         this.customerName = customerName;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getRoomId() {
@@ -58,8 +49,8 @@ public class Reservation {
     }
 
     @Override
-    public String toString() {
-        return "Reservation ID: " + id + "\nCustomer Name: " + customerName + "\nRoom ID: " + roomId +
-                "\nCheck-In: " + checkIn + "\nCheck-Out: " + checkOut;
+    public String getDetails() {
+        return "Reservation ID: " + getId() + ", Room ID: " + roomId +
+                ", Customer Name: " + customerName + ", Check-In: " + checkIn + ", Check-Out: " + checkOut;
     }
 }

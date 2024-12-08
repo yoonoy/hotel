@@ -7,7 +7,7 @@ public class RoomController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Room Details");
         alert.setHeaderText("Room Information");
-        alert.setContentText(room.toString());
+        alert.setContentText(room.getDetails());
         alert.showAndWait();
     }
 }

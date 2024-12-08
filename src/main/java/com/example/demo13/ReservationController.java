@@ -11,5 +11,3 @@ public class ReservationController {
         alert.showAndWait();
     }
 }
-
-
