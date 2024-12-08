@@ -12,6 +12,11 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class HelloController {
+    private final DataConnection dataConnection;
+
+    public HelloController(DataConnection dataConnection) {
+        this.dataConnection = dataConnection;
+    }
 
     @FXML
     private ListView<String> reservationListView;
