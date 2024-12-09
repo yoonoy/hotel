@@ -1,19 +1,16 @@
 package com.example.demo13;
 
-import java.util.Date;
-
-public class Reservation extends Entity {
+public class Reservation {
     private int roomId;
-    private String customerName;
-    private Date checkIn;
-    private Date checkOut;
+    private String guestName;
+    private String reservationDate;
+    private int stayDuration;
 
-    public Reservation(int id, int roomId, String customerName, Date checkIn, Date checkOut) {
-        super(id);
+    public Reservation(int roomId, String guestName, String reservationDate, int stayDuration) {
         this.roomId = roomId;
-        this.customerName = customerName;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+        this.guestName = guestName;
+        this.reservationDate = reservationDate;
+        this.stayDuration = stayDuration;
     }
 
     public int getRoomId() {
@@ -24,33 +21,27 @@ public class Reservation extends Entity {
         this.roomId = roomId;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getGuestName() {
+        return guestName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
     }
 
-    public Date getCheckIn() {
-        return checkIn;
+    public String getReservationDate() {
+        return reservationDate;
     }
 
-    public void setCheckIn(Date checkIn) {
-        this.checkIn = checkIn;
+    public void setReservationDate(String reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
-    public Date getCheckOut() {
-        return checkOut;
+    public int getStayDuration() {
+        return stayDuration;
     }
 
-    public void setCheckOut(Date checkOut) {
-        this.checkOut = checkOut;
-    }
-
-    @Override
-    public String getDetails() {
-        return "Reservation ID: " + getId() + ", Room ID: " + roomId +
-                ", Customer Name: " + customerName + ", Check-In: " + checkIn + ", Check-Out: " + checkOut;
+    public void setStayDuration(int stayDuration) {
+        this.stayDuration = stayDuration;
     }
 }

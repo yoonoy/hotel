@@ -41,6 +41,7 @@
         </rowConstraints>
     </GridPane>
 
+
     <!-- Image of the Hotel -->
     <ImageView fitHeight="165.0" fitWidth="329.0">
         <image>
