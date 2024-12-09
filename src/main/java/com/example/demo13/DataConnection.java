@@ -6,6 +6,12 @@ import java.sql.SQLException;
 
 
 public class DataConnection {
+        private final DataConnection dataConnection;
+
+        public DataConnection(DataConnection dataConnection) {
+                this.dataConnection = dataConnection;
+        }
+
         private static final String URL = "jdbc:postgresql://localhost:5432/final";
         private static final String USER = "postgres";
         private static final String PASSWORD = "75554446";
