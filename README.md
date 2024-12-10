@@ -33,21 +33,38 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
  
 ## Screenshots
 ### 1. Main Screen  
-<img width="453" alt="Screenshot 2024-12-07 at 14 07 52" src="https://github.com/user-attachments/assets/6e62cd15-4ac0-45d8-94bd-2c59047d08bc">
+<img width="453" alt="Screenshot 2024-12-10 at 18 53 25" src="https://github.com/user-attachments/assets/617d087b-cf73-4d01-88ea-637197971520">
 
 
-### 2. View Rooms  
-<img width="453" alt="Screenshot 2024-12-07 at 14 08 16" src="https://github.com/user-attachments/assets/837434e0-bdda-4f5b-a1bc-bea95090af79">
+<img width="453" alt="Screenshot 2024-12-10 at 18 52 30" src="https://github.com/user-attachments/assets/8a16ac78-7a13-4e0a-8775-aa40da075fd0">
 
 
-### 3. Make Reservation  
-<img width="453" alt="Screenshot 2024-12-07 at 14 08 23" src="https://github.com/user-attachments/assets/f2b4350a-80f6-4514-be39-cb5918361263">
+
+<img width="453" alt="Screenshot 2024-12-10 at 18 52 39" src="https://github.com/user-attachments/assets/f3aa7ae6-b49d-4f8b-9953-f0a9237e9b23">
 
 
-<img width="453" alt="Screenshot 2024-12-07 at 14 08 29" src="https://github.com/user-attachments/assets/34731a36-ca36-41cc-9165-2d329e8459ec">
- 
-### 4. Hotel Information
-<img width="453" alt="Screenshot 2024-12-07 at 14 08 35" src="https://github.com/user-attachments/assets/411da41d-5505-4d77-80b4-f038d5962fc5">
+<img width="453" alt="Screenshot 2024-12-10 at 18 52 52" src="https://github.com/user-attachments/assets/aedaa0dd-7bb7-477f-9718-0e76be39a027">
+
+
+<img width="453" alt="Screenshot 2024-12-10 at 18 53 12" src="https://github.com/user-attachments/assets/54ea7d7b-385d-4571-8e23-4307a9a98d02">
+
+
+<img width="453" alt="Screenshot 2024-12-10 at 18 53 25" src="https://github.com/user-attachments/assets/e247a55d-2a21-4641-8db8-5d23a4debc61">
+
+
+<img width="453" alt="Screenshot 2024-12-10 at 18 53 28" src="https://github.com/user-attachments/assets/ef16e972-6c84-4131-9322-6d8142bebbc6">
+
+
+<img width="493" alt="Screenshot 2024-12-10 at 18 53 44" src="https://github.com/user-attachments/assets/a1171018-c5f9-4723-845e-82bb3a60e7d2">
+
+
+<img width="493" alt="Screenshot 2024-12-10 at 18 54 00" src="https://github.com/user-attachments/assets/c5f101f8-432c-48b4-87d9-d70c0739424c">
+
+
+<img width="493" alt="Screenshot 2024-12-10 at 18 54 05" src="https://github.com/user-attachments/assets/6704b485-581b-4bfd-b5cb-b6fe17399d8c">
+
+
+<img width="493" alt="Screenshot 2024-12-10 at 18 54 09" src="https://github.com/user-attachments/assets/71aaace1-c320-4b0f-ab88-6075af0059ae">
 
 
 
