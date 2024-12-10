@@ -18,7 +18,7 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
   - Implement classes and their functions
   - Testing and debugging.
  
-## Requirement
+## Requirements
 1. Connection with database
 2. JavaFX design
 3. Creating some buttons
