@@ -23,7 +23,7 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
 2. JavaFX design
 3. Creating some buttons
 4. View rooms button for knowing what kind of rooms we have
-5. Admins of this application could make reservation with ID, name and how many days will stay at hotel our clients
+5. Admins of this application could make reservation with ID, name and how many days can will stay at hotel our clients
 6. Application should show us list of reserved people
 7. Information about hotel reservation on application
 8. Add rooms button that will help admins to add one more room
