@@ -30,6 +30,11 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
 9. Exit button 
 10. Create vusually appealing application
 
+
+
+## Commits
+<img width="900" alt="Screenshot 2024-12-11 at 12 10 03" src="https://github.com/user-attachments/assets/1e0a0996-bd59-4b85-86da-b1e651952deb">
+
  
 ## Screenshots
 ### 1. Main Screen  
