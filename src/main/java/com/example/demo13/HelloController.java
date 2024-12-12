@@ -3,6 +3,7 @@ package com.example.demo13;
 import com.example.demo13.DataConnection;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 
@@ -51,42 +52,65 @@ public class HelloController {
 
         Optional<String> roomIdInput = roomDialog.showAndWait();
         roomIdInput.ifPresent(roomId -> {
-            TextInputDialog nameDialog = new TextInputDialog();
-            nameDialog.setTitle("Enter Your Name");
-            nameDialog.setHeaderText("Enter Your Name for Reservation");
-            nameDialog.setContentText("Name:");
+            try (Connection connection = DataConnection.getConnection()) {
+                // Check if the room is available
+                PreparedStatement checkRoomStmt = connection.prepareStatement(
+                        "SELECT * FROM rooms WHERE room_id = ? AND is_available = true");
+                checkRoomStmt.setInt(1, Integer.parseInt(roomId));
+                ResultSet roomCheckResult = checkRoomStmt.executeQuery();
 
-            Optional<String> nameInput = nameDialog.showAndWait();
-            nameInput.ifPresent(name -> {
-                TextInputDialog daysDialog = new TextInputDialog();
-                daysDialog.setTitle("Stay Duration");
-                daysDialog.setHeaderText("Enter Number of Days of Stay");
-                daysDialog.setContentText("Days:");
+                if (!roomCheckResult.next()) {
+                    showAlert("Room Unavailable", "Room ID " + roomId + " is not available. Please select a different room.", Alert.AlertType.ERROR);
+                    return;
+                }
 
-                Optional<String> daysInput = daysDialog.showAndWait();
-                daysInput.ifPresent(days -> {
-                    try (Connection connection = DataConnection.getConnection();
-                         PreparedStatement statement = connection.prepareStatement(
-                                 "INSERT INTO reservations (room_id, guest_name, stay_duration) VALUES (?, ?, ?)")) {
+                // Proceed with reservation
+                TextInputDialog nameDialog = new TextInputDialog();
+                nameDialog.setTitle("Enter Your Name");
+                nameDialog.setHeaderText("Enter Your Name for Reservation");
+                nameDialog.setContentText("Name:");
 
-                        statement.setInt(1, Integer.parseInt(roomId));
-                        statement.setString(2, name);
-                        statement.setInt(3, Integer.parseInt(days));
-                        int rowsInserted = statement.executeUpdate();
+                Optional<String> nameInput = nameDialog.showAndWait();
+                nameInput.ifPresent(name -> {
+                    TextInputDialog daysDialog = new TextInputDialog();
+                    daysDialog.setTitle("Stay Duration");
+                    daysDialog.setHeaderText("Enter Number of Days of Stay");
+                    daysDialog.setContentText("Days:");
 
-                        if (rowsInserted > 0) {
-                            showAlert("Reservation Successful", "Room ID " + roomId + " reserved for " + name + " for " + days + " days.");
-                        } else {
-                            showAlert("Reservation Failed", "Unable to reserve room.");
+                    Optional<String> daysInput = daysDialog.showAndWait();
+                    daysInput.ifPresent(days -> {
+                        try (PreparedStatement insertStmt = connection.prepareStatement(
+                                "INSERT INTO reservations (room_id, guest_name, stay_duration) VALUES (?, ?, ?)")) {
+
+                            // Insert reservation
+                            insertStmt.setInt(1, Integer.parseInt(roomId));
+                            insertStmt.setString(2, name);
+                            insertStmt.setInt(3, Integer.parseInt(days));
+                            int rowsInserted = insertStmt.executeUpdate();
+
+                            if (rowsInserted > 0) {
+                                // Mark room as unavailable
+                                PreparedStatement updateRoomStmt = connection.prepareStatement(
+                                        "UPDATE rooms SET is_available = false WHERE room_id = ?");
+                                updateRoomStmt.setInt(1, Integer.parseInt(roomId));
+                                updateRoomStmt.executeUpdate();
+
+                                showAlert("Reservation Successful", "Room ID " + roomId + " reserved for " + name + " for " + days + " days.");
+                            } else {
+                                showAlert("Reservation Failed", "Unable to reserve room.");
+                            }
+
+                        } catch (SQLException e) {
+                            showAlert("Database Error", "Unable to make reservation: " + e.getMessage(), Alert.AlertType.ERROR);
                         }
-
-                    } catch (SQLException e) {
-                        showAlert("Database Error", "Unable to make reservation: " + e.getMessage(), Alert.AlertType.ERROR);
-                    }
+                    });
                 });
-            });
+            } catch (SQLException e) {
+                showAlert("Database Error", "Unable to check room availability: " + e.getMessage(), Alert.AlertType.ERROR);
+            }
         });
     }
+
 
     // View Reservations Handler
     @FXML
@@ -203,6 +227,76 @@ public class HelloController {
             showAlert("Database Error", "Unable to fetch room count data: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
+    @FXML
+    private void handleCancelReservation() {
+        // Ask user for reservation ID to cancel
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Cancel Reservation");
+        dialog.setHeaderText("Enter Reservation ID to Cancel");
+        dialog.setContentText("Reservation ID:");
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(reservationId -> {
+            try (Connection connection = DataConnection.getConnection()) {
+                // Check if the reservation exists before attempting deletion
+                PreparedStatement checkStmt = connection.prepareStatement(
+                        "SELECT * FROM reservations WHERE reservation_id = ?");
+                checkStmt.setInt(1, Integer.parseInt(reservationId));
+                ResultSet checkResult = checkStmt.executeQuery();
+
+                if (checkResult.next()) {
+                    // Reservation found, proceed with deletion
+                    PreparedStatement deleteStmt = connection.prepareStatement(
+                            "DELETE FROM reservations WHERE reservation_id = ?");
+                    deleteStmt.setInt(1, Integer.parseInt(reservationId));
+
+                    int rowsDeleted = deleteStmt.executeUpdate();
+                    if (rowsDeleted > 0) {
+                        showAlert("Reservation Canceled", "Reservation ID " + reservationId + " has been canceled.");
+                    } else {
+                        showAlert("Cancellation Failed", "Unable to cancel reservation.");
+                    }
+                } else {
+                    showAlert("Reservation Not Found", "No reservation found with the given ID.");
+                }
+            } catch (SQLException e) {
+                showAlert("Database Error", "Unable to cancel reservation: " + e.getMessage(), Alert.AlertType.ERROR);
+            }
+        });
+    }
+    @FXML
+    private void handleCancelAllReservations() {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Update Reservations");
+        confirmationAlert.setHeaderText("Are you sure you want to cancel all reservations?");
+        confirmationAlert.setContentText("This action cannot be undone.");
+
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            try (Connection connection = DataConnection.getConnection();
+                 PreparedStatement deleteStmt = connection.prepareStatement("DELETE FROM reservations");
+                 PreparedStatement updateRoomStmt = connection.prepareStatement("UPDATE rooms SET is_available = true")) {
+
+                // Delete all reservations
+                int rowsDeleted = deleteStmt.executeUpdate();
+
+                // Mark all rooms as available
+                updateRoomStmt.executeUpdate();
+
+                if (rowsDeleted > 0) {
+                    showAlert("All Reservations Canceled", "All reservations have been successfully canceled.");
+                } else {
+                    showAlert("No Reservations Found", "There were no reservations to cancel.");
+                }
+
+            } catch (SQLException e) {
+                showAlert("Database Error", "Unable to cancel all reservations: " + e.getMessage(), Alert.AlertType.ERROR);
+            }
+        }
+    }
+
+
 
     // Exit Handler
     @FXML
