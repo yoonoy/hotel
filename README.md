@@ -1,12 +1,16 @@
 # Hotel Reservation System
 
 ## Description
-The Hotel Reservation System is a comprehensive JavaFX application that integrates PostgreSQL for managing hotel room availability, reservations, and hotel details. This project demonstrates the use of OOP principles, including inheritance and encapsulation, to create a robust and user-friendly interface for hotel management tasks.
+The Hotel Reservation System is a comprehensive JavaFX application that integrates PostgreSQL for managing hotel room availability, reservations, and hotel details. This project demonstrates the use of OOP principles, including inheritance and encapsulation,and connection to database to create a robust and user-friendly interface for hotel management tasks.
+
+###Overview
+The project aims to create a relational database for an online hotel reservation, including functionalities for  reserving a room with  entering details about ID of room , name of the customer and duration of stay in this hotel.
 
 
 ## Team Members List
 - **Aiganysh Abdukaarova COMFCI-23**
 - **Risolatkhon Madaminova COMFCI-23**
+
 
 ## Roles of Group Members
 - **Aiganysh Abdukaarova**:
@@ -17,6 +21,7 @@ The Hotel Reservation System is a comprehensive JavaFX application that integrat
   - Implementation of backend logic (data connections, queries).
   - Implement classes and their functions
   - Testing and debugging.
+
  
 ## Requirements
 1. Connection with database
