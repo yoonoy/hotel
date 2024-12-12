@@ -36,6 +36,32 @@ The project aims to create a relational database for an online hotel reservation
 10. Create vusually appealing application
 
 
+## Deployment Instructions
+1. Install Java 20 or later on the target system.
+2. Install MySQL 8.x and create the BookstoreDB database using the provided SQL scripts in /scripts/create_tables.sql.
+3. Update the database configuration in DatabaseConnection.java.
+4. Build the application using Maven: mvn clean package.
+5. Run the application:
+
+
+
+## Using Instructions
+
+1. Run the application: Start the program to begin managing room reservations.  
+2. View Available Rooms: Click the "View Rooms" button to display a list of all available rooms, including their ID, type, and cost.  
+3. Make a Reservation:  
+   - After reviewing the room information, select a room for reservation by clicking the "Make Reservation" button.  
+   - You will be prompted to enter the required customer details, including the room ID, customer name, and the duration of stay (in days).  
+   - Once all details are entered, a confirmation message will display the reservation information.  
+4. View Reservations: To see the list of all reservations, click the "View Reservations" button. The information displayed will include the room ID, customer name, reservation date, and the stay duration.  
+5. Add New Rooms: As a receptionist, you can add new rooms by clicking the "Add Rooms" button. You will be asked to enter details such as the new room ID, type of room, and price. Once submitted, the new room will be added to the available rooms list.  
+6. Exit the Application: When you are done, click the "Exit" button to close the application.
+
+
+## Database diagram
+![2024-12-12 16 59 07](https://github.com/user-attachments/assets/607bad87-7231-46d2-bd13-dfc2ca286303)
+
+
 
 ## Commits
 <img width="900" alt="Screenshot 2024-12-11 at 12 10 03" src="https://github.com/user-attachments/assets/1e0a0996-bd59-4b85-86da-b1e651952deb">
