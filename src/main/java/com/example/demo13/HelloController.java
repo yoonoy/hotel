@@ -1,11 +1,11 @@
 package com.example.demo13;
 
 import com.example.demo13.DataConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -52,6 +52,12 @@ public class HelloController {
 
         Optional<String> roomIdInput = roomDialog.showAndWait();
         roomIdInput.ifPresent(roomId -> {
+            // Validate if the roomId is an integer
+            if (!isInteger(roomId)) {
+                showAlert("Invalid Input", "Room ID must be an integer. Please try again.", Alert.AlertType.ERROR);
+                return;
+            }
+
             try (Connection connection = DataConnection.getConnection()) {
                 // Check if the room is available
                 PreparedStatement checkRoomStmt = connection.prepareStatement(
@@ -72,6 +78,12 @@ public class HelloController {
 
                 Optional<String> nameInput = nameDialog.showAndWait();
                 nameInput.ifPresent(name -> {
+                    // Validate if the name contains any numbers
+                    if (!isValidName(name)) {
+                        showAlert("Invalid Input", "Name cannot contain numbers. Please enter a valid name.", Alert.AlertType.ERROR);
+                        return;
+                    }
+
                     TextInputDialog daysDialog = new TextInputDialog();
                     daysDialog.setTitle("Stay Duration");
                     daysDialog.setHeaderText("Enter Number of Days of Stay");
@@ -79,6 +91,12 @@ public class HelloController {
 
                     Optional<String> daysInput = daysDialog.showAndWait();
                     daysInput.ifPresent(days -> {
+                        // Validate if the number of days is an integer
+                        if (!isInteger(days)) {
+                            showAlert("Invalid Input", "Number of days must be an integer. Please try again.", Alert.AlertType.ERROR);
+                            return;
+                        }
+
                         try (PreparedStatement insertStmt = connection.prepareStatement(
                                 "INSERT INTO reservations (room_id, guest_name, stay_duration) VALUES (?, ?, ?)")) {
 
@@ -111,6 +129,23 @@ public class HelloController {
         });
     }
 
+    // Helper method to check if a string is an integer
+    private boolean isInteger(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    // Helper method to check if the name contains only letters and spaces
+    private boolean isValidName(String name) {
+        return name != null && name.matches("[a-zA-Z\\s]+");
+    }
+
+
+
 
     // View Reservations Handler
     @FXML
@@ -122,6 +157,7 @@ public class HelloController {
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                int reservationId = resultSet.getInt("reservation_id"); // Fetch reservation ID
                 int roomId = resultSet.getInt("room_id");
                 String guestName = resultSet.getString("guest_name");
                 int stayDuration = resultSet.getInt("stay_duration");
@@ -130,7 +166,8 @@ public class HelloController {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 String formattedDate = dateFormat.format(reservationDate);
 
-                reservationsInfo.append("Room ID: ").append(roomId)
+                reservationsInfo.append("Reservation ID: ").append(reservationId) // Include reservation ID
+                        .append(", Room ID: ").append(roomId)
                         .append(", Guest Name: ").append(guestName)
                         .append(", Reservation Date: ").append(formattedDate)
                         .append(", Stay Duration: ").append(stayDuration).append(" days")
@@ -143,6 +180,7 @@ public class HelloController {
             showAlert("Database Error", "Unable to fetch reservation data: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
 
     // View Hotel Information Handler
     @FXML
@@ -189,6 +227,12 @@ public class HelloController {
             roomTypeDialog.setHeaderText("Enter the type of room you want to add (Single, Double, Suite):");
             Optional<String> roomTypeInput = roomTypeDialog.showAndWait();
             roomTypeInput.ifPresent(roomType -> {
+                // Validate the room type input
+                if (!isValidRoomType(roomType)) {
+                    showAlert("Invalid Room Type", "Invalid room type entered. Please enter 'Single', 'Double', or 'Suite'.", Alert.AlertType.ERROR);
+                    return;  // Exit if the room type is invalid
+                }
+
                 TextInputDialog roomIdDialog = new TextInputDialog();
                 roomIdDialog.setTitle("Room ID");
                 roomIdDialog.setHeaderText("Enter the Room ID to add:");
@@ -227,6 +271,14 @@ public class HelloController {
             showAlert("Database Error", "Unable to fetch room count data: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
+    // Helper method to validate the room type
+    private boolean isValidRoomType(String roomType) {
+        return roomType != null && (roomType.equalsIgnoreCase("Single") ||
+                roomType.equalsIgnoreCase("Double") ||
+                roomType.equalsIgnoreCase("Suite"));
+    }
+
 
     @FXML
     private void handleCancelReservation() {
