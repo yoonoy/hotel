@@ -64,12 +64,12 @@ The project aims to create a relational database for an online hotel reservation
 
 
 ## Commits
-<img width="900" alt="Screenshot 2024-12-11 at 12 10 03" src="https://github.com/user-attachments/assets/1e0a0996-bd59-4b85-86da-b1e651952deb">
+<img width="914" alt="Screenshot 2024-12-15 at 00 20 55" src="https://github.com/user-attachments/assets/630a1e22-e50f-46bf-aac4-6a9aef19af07" />
 
- 
+
 ## Screenshots
 ### 1. Main Screen  
-<img width="453" alt="Screenshot 2024-12-10 at 18 53 25" src="https://github.com/user-attachments/assets/617d087b-cf73-4d01-88ea-637197971520">
+<img width="599" alt="Screenshot 2024-12-15 at 00 21 47" src="https://github.com/user-attachments/assets/a3a2a186-9e18-43ed-87cf-039622d889b7" />
 
 
 <img width="453" alt="Screenshot 2024-12-10 at 18 52 30" src="https://github.com/user-attachments/assets/8a16ac78-7a13-4e0a-8775-aa40da075fd0">
