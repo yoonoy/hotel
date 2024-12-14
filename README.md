@@ -110,8 +110,3 @@ The project aims to create a relational database for an online hotel reservation
 
 ### Weekly Meeting Documentation
 https://docs.google.com/document/d/11mxoQj7_o6EOdj6-RhD9X_zd2i2wZ--7CBbgX4DyAZA/edit?usp=sharing
-
-
-
-### Video in google drive
-https://drive.google.com/drive/folders/1GXaqr3Hl_8OIIQd1DDyng93LAyfBO9RL?usp=sharing
