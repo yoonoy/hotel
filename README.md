@@ -72,35 +72,67 @@ The project aims to create a relational database for an online hotel reservation
 <img width="599" alt="Screenshot 2024-12-15 at 00 21 47" src="https://github.com/user-attachments/assets/a3a2a186-9e18-43ed-87cf-039622d889b7" />
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 52 30" src="https://github.com/user-attachments/assets/8a16ac78-7a13-4e0a-8775-aa40da075fd0">
+<img width="599" alt="Screenshot 2024-12-15 at 00 36 18" src="https://github.com/user-attachments/assets/d3f0f00b-34af-40ef-bef7-eda66959d640" />
 
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 52 39" src="https://github.com/user-attachments/assets/f3aa7ae6-b49d-4f8b-9953-f0a9237e9b23">
+<img width="599" alt="Screenshot 2024-12-15 at 00 36 44" src="https://github.com/user-attachments/assets/aaa8f4e1-771b-4861-85d9-ffd883a8a274" />
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 52 52" src="https://github.com/user-attachments/assets/aedaa0dd-7bb7-477f-9718-0e76be39a027">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 08" src="https://github.com/user-attachments/assets/5c693607-fa28-42d4-8127-0c21cc1b4afe" />
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 53 12" src="https://github.com/user-attachments/assets/54ea7d7b-385d-4571-8e23-4307a9a98d02">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 14" src="https://github.com/user-attachments/assets/4533095b-776b-4c0f-a5d6-e0e8922c26c5" />
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 53 25" src="https://github.com/user-attachments/assets/e247a55d-2a21-4641-8db8-5d23a4debc61">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 24" src="https://github.com/user-attachments/assets/e442227f-c1f9-4dc3-a902-4effbe997875" />
 
 
-<img width="453" alt="Screenshot 2024-12-10 at 18 53 28" src="https://github.com/user-attachments/assets/ef16e972-6c84-4131-9322-6d8142bebbc6">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 39" src="https://github.com/user-attachments/assets/c678cc43-4c49-49ed-a34f-cbb44af196d8" />
 
 
-<img width="493" alt="Screenshot 2024-12-10 at 18 53 44" src="https://github.com/user-attachments/assets/a1171018-c5f9-4723-845e-82bb3a60e7d2">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 43" src="https://github.com/user-attachments/assets/3de4c9c5-8e3a-4a49-8a34-f76d47a0c2b6" />
 
 
-<img width="493" alt="Screenshot 2024-12-10 at 18 54 00" src="https://github.com/user-attachments/assets/c5f101f8-432c-48b4-87d9-d70c0739424c">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 37 55" src="https://github.com/user-attachments/assets/679097a3-0783-4199-831f-11f63b48576d" />
 
 
-<img width="493" alt="Screenshot 2024-12-10 at 18 54 05" src="https://github.com/user-attachments/assets/6704b485-581b-4bfd-b5cb-b6fe17399d8c">
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 04" src="https://github.com/user-attachments/assets/2e780d3e-ebdb-424c-885c-9dd2a139ab34" />
 
 
-<img width="493" alt="Screenshot 2024-12-10 at 18 54 09" src="https://github.com/user-attachments/assets/71aaace1-c320-4b0f-ab88-6075af0059ae">
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 09" src="https://github.com/user-attachments/assets/5a2fbfc5-7a1f-42cd-925c-ce4f9d326691" />
+\
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 12" src="https://github.com/user-attachments/assets/bc96bed0-855e-40eb-900a-def151fe6183" />
+
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 15" src="https://github.com/user-attachments/assets/f3a58819-0d76-40f4-84a3-0331ec890da2" />
+
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 22" src="https://github.com/user-attachments/assets/6586fbe1-0de2-475a-8adc-871897ea8395" />
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 25" src="https://github.com/user-attachments/assets/18d235be-4bcc-485b-a2e2-05edc4cce990" />
+
+
+
+<img width="599" alt="Screenshot 2024-12-15 at 00 38 30" src="https://github.com/user-attachments/assets/c31a048e-19c7-40a5-8ddf-eb2656ee33ef" />
+
+
+
+
 
 
 
